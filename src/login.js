@@ -79,5 +79,5 @@ document
     localStorage.setItem('formData', JSON.stringify(formData));
 
     // Redirigir a la pàgina de consulta meteorològica
-    window.location.href = 'consulta.html';
+    window.location.href = 'meteo.html';
   });

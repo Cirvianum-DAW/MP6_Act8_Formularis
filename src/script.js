@@ -37,16 +37,21 @@ document
           temperature: `${currentData.current.temp_c}°C`,
           weatherDescription: currentData.current.condition.text,
           weatherIcon: currentData.current.condition.icon,
+          region: currentData.location.region,
+          city: currentData.location.name,
+          country: currentData.location.country,
         },
         forecast: {
           temperature: `${forecastData.forecast.forecastday[1].day.avgtemp_c}°C`,
           weatherDescription:
             forecastData.forecast.forecastday[1].day.condition.text,
           weatherIcon: forecastData.forecast.forecastday[1].day.condition.icon,
+          region: currentData.location.region,
+          city: currentData.location.name,
+          country: currentData.location.country,
         },
       };
 
-      console.log(weatherData);
       displayWeatherResults(weatherData);
     } catch (error) {
       console.error("Error en la petició a l'API:", error);
@@ -60,6 +65,7 @@ function displayWeatherResults(weatherData) {
   const currentWeatherDescriptionElement =
     document.getElementById('weatherDescription');
   const currentWeatherIconElement = document.getElementById('weatherIcon');
+  const currentLocationElement = document.getElementById('location');
   const forecastTemperatureElement = document.getElementById(
     'forecastTemperature'
   );
@@ -70,11 +76,15 @@ function displayWeatherResults(weatherData) {
     'forecastWeatherIcon'
   );
 
+  console.log(weatherData);
+
+  // Informació de la localització
+  currentLocationElement.textContent = `${weatherData.current.region} - ${weatherData.current.city} (${weatherData.current.country})`;
+
   // Mostrar informació actual
   currentTemperatureElement.textContent = `Temperatura Actual: ${weatherData.current.temperature}`;
   currentWeatherDescriptionElement.textContent = `Condicions Actuals: ${weatherData.current.weatherDescription}`;
   currentWeatherIconElement.src = `https:${weatherData.current.weatherIcon}`;
-
   // Mostrar informació de la previsió per demà
   forecastTemperatureElement.textContent = `Temperatura per Demà: ${weatherData.forecast.temperature}`;
   forecastWeatherDescriptionElement.textContent = `Condicions per Demà: ${weatherData.forecast.weatherDescription}`;

@@ -75,8 +75,23 @@ document
       gender,
     };
 
+    // Web Storage API: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
     // Emmagatzemar les dades a localStorage
-    localStorage.setItem('formData', JSON.stringify(formData));
+    //localStorage.setItem('formData', JSON.stringify(formData));
+
+    // Una alternativa a localStorage és el Web Storage API. La diferència
+    //principal és que localStorage és persistent, mentre que sessionStorage
+    //només dura durant la sessió actual.
+    //Veiem com fer-ho:
+
+    // Emmagatzemar les dades a sessionStorage
+    sessionStorage.setItem('formData', JSON.stringify(formData));
+
+    // Si vull consultar les dades emmagatzemades a localStorage
+    // const storedFormData = localStorage.getItem('formData');
+
+    // També existeix indexedDB, que és una base de dades més potent i complexa
+    // Pots consultar-ho a la documentació de Mozilla: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 
     // Redirigir a la pàgina de consulta meteorològica
     window.location.href = 'meteo.html';

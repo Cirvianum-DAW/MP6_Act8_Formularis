@@ -293,12 +293,6 @@ Tingueu en compte que heu d'implementar aquestes validacions dins la funció de 
 
 ## Exercici 2 - Consulta el temps meteorològic
 
-Aquí tens l'enunciat de l'exercici per als teus alumnes:
-
----
-
-**Exercici de Petició a API Meteorològica**
-
 En aquest exercici, heu de desenvolupar una funcionalitat per a la nostra pàgina web que permeti als usuaris obtenir la informació meteorològica actual i la previsió per al dia següent d'una ubicació especificada.
 
 1. Heu de crear un formulari amb els següents camps:
